@@ -4,9 +4,9 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>International Courier Services</title>
+  <title>International Courier Service</title>
   <meta name="description" content=""/>
-  <meta name="keywords" content="" /> 
+  <meta name="keywords" content="" />
   <meta name="author" content="">	
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <!--html5 ie include-->
