@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+//Vars
+$darkblue: #01113b;
+$lighterblue: #527bb9;
+$headingblue: #525f7f;
+$orange: #fb6340;
+
+body{
+	font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+}
+.container {
+    max-width: 1040px !important;
+}
+
+/*
+    General
+*/
+.hidden {
+    display: none;
+    transition: 0.5s;
+}
+.no-margin{ 
+    margin: 0px !important; 
+}
+
+ul.basic{ 
+    list-style-type:none; 
+    margin:0px; 
+    padding-left: 0px;
+}
+ul.no-padding{ 
+    padding: 0px; 
+}
+ul.list-inline li {
+    display: inline-block;
+    margin-right: 10px;
+}
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Fira Sans', 'Helvetica', 'Arial', sans-serif; 
+    font-weight: 700;
+    letter-spacing: -1px;
+    word-spacing: 2px;
+    color: #525f7f;
+}
+a,a:active,a:focus,a:hover,a:visited,button:active,button:focus,button:hover,button:visited{ 
+    outline: none !important;
+    outline-color: unset !important;
+    text-decoration: none !important;
+}
+input:active, input:focus, select:focus, select:active {
+    outline: none !important;
+    box-shadow: unset !important;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.spacer-10 {
+    height: 10px;
+}
+.spacer-15 {
+    height: 15px;
+}
+.spacer-20 {
+    height: 20px;
+}
+.spacer-25 {
+    height: 25px;
+}
+.spacer-30 {
+    height: 30px;
+}
+.spacer-35 {
+    height: 35px;
+}
+.spacer-40 {
+    height: 40px;
+}
+.spacer-45 {
+    height: 45px;
+}
+.spacer-50 {
+    height: 50px;
+}
+
+.shadow {
+    box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
+}
+
+.gutter {
+    border-radius: 5px;
+    padding: 24px;
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.sticky-top {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+}
+
+.btn-full {
+    width: 100%;
+}
+.full-width {
+    width: 100%;
+}
+
+.page-content {
+	padding-top: 40px;
+}
+
+.danger-alert {
+    background: #f7f7f7;
+    padding: 5px 8px;
+    font-size: 0.8em;
+    border-radius: 4px;
+    color: #bb2f3c;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.display-grid {
+    display: grid;
+}
+
+p {
+    b,strong {
+        font-weight: bold;
+    }
+}
+
+.well {
+    min-height: 20px;
+    padding: 19px;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+}
+
+.box {
+    background-color: white;
+    border-radius: 5px;
+    padding: 24px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12);
+}
+
+.box-2 {
+    @extend .box;
+    padding: 44px;
+}
+
+.mw-500 {
+    max-width: 500px;
+}
+.mw-600 {
+    max-width: 600px;
+}
+.mw-650 {
+    max-width: 650px;
+}
+.mw-700 {
+    max-width: 700px;
+}
+.mw-750 {
+    max-width: 750px;
+}
+
+
+// Homepage
+.slider-wrapper {
+    img {
+        max-width: 100%;
+    }
+}
+.trackorder-boxes {
+    padding: 50px 0px;
+    background-color: #E9E9E9;
+
+    .pod {
+        overflow: hidden;
+    }
+}
+.mpd-couriers {
+    padding: 50px 0px;
+    text-align: center;
+
+    li {
+        padding: 10px;
+    }
+}
+
+// login/registration page
+.auth-page {
+	label {
+        font-weight: bold;
+    }
+}
+.box.auth-box {
+    max-width: 400px;
+    margin: 80px auto 40px;
+    padding: 50px 40px;
+
+    .logo {
+        margin-bottom: 20px;
+        img {
+            max-width: 100px;
+        }
+    }
+}
+
+
+// Contact Page
+.contact-page-header-box-icon {
+    text-align: center;
+    font-size: 68px;
+    color: #11cdef;
+}
+.contact-page-rich {
+    background-color: #f7f7f7;
+    padding: 70px 0px;
+    margin-top: 50px;
+}
+
+
+// footer
+.footer {
+    background: #7b828a !important;
+    
+    padding: 40px 0px 0px 0px;
+
+    section {
+        margin-bottom: 20px;
+    }
+
+    a {
+        font-size: 0.8em;
+        opacity: 0.9;
+        color: white;
+
+        &:hover {
+            color: wheat;
+            font-weight: bold;
+        }
+    }
+
+    h6 {
+        color: white;
+        text-transform: uppercase;
+    }
+    .footer-dark {
+        background-color: #60666d;
+        padding: 25px 0px 15px;
+        color: white;
+        text-align: center;
+        font-size: 0.8em;
+
+        a {
+            color: white;
+            font-size: 0.8em;
+        }
+    }
+}
