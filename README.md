@@ -17,7 +17,7 @@ Running this app locally requires XAMPP (or MAMP for MacOS) and configuration of
   ```
   (replace the DocumentRoot and Directory values with the actual path to the folder on your computer)
   
-4. Go to `C:/windows/system32/drivers/etc` and open the file using a text editor
+4. Go to `C:/windows/system32/drivers/etc` and open the `hosts` file using a text editor
 5. Add the following:
   ```
   127.0.0.1 www.devops-ci.loc
