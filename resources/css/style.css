@@ -1,6 +1,6 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600;700;800&display=swap");
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Fira Sans', 'Helvetica', 'Arial', sans-serif;
   font-size: 15px;
 }
 
@@ -36,7 +36,6 @@ ul.list-inline li {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Fira Sans', 'Helvetica', 'Arial', sans-serif;
   font-weight: 700;
   letter-spacing: -1px;
   word-spacing: 2px;
@@ -102,10 +101,16 @@ input:active, input:focus, select:focus, select:active {
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
-.gutter {
+.gutter, .gutter-2 {
   border-radius: 5px;
   padding: 24px;
   background-color: rgba(0, 0, 0, 0.03);
+}
+
+.gutter-2 {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: .25rem;
 }
 
 .sticky-top {
@@ -236,6 +241,12 @@ p b, p strong {
   background-color: #f7f7f7;
   padding: 70px 0px;
   margin-top: 50px;
+}
+
+.dashboard-referral {
+  border-radius: 5px;
+  border: 1px solid #e0e0e0;
+  padding: 20px;
 }
 
 .footer {
