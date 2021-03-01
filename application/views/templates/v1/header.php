@@ -105,7 +105,7 @@
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<a class="dropdown-item" href="<?= base_url('dashboard') ?>">My Account</a>
-							<a class="dropdown-item" href="#">Another action</a>
+							<a class="dropdown-item" href="<?=base_url('support')?>">Get Support</a>
 							<div class="dropdown-divider"></div>
 							<a class="dropdown-item" href="<?=base_url('auth/logout')?>">Sign Out</a>
 						</div>

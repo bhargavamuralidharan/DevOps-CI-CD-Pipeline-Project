@@ -27,6 +27,8 @@
                         You currently do not have any recent packages.
                     </div>
                 </div>
+
+                <div class="spacer-20"></div>
             </div>
 
             <div class="col-md-4">
@@ -75,7 +77,7 @@
 
         <div class="dashboard-referral">
 
-            <h3 class="text-center">Refer A Friend</h3>
+            <h5 class="text-center">Refer A Friend</h5>
 
             <div class="row">
                 <div class="col-md-4">
@@ -133,8 +135,8 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="" id="changePasswordForm">
-                    <div id="new-password-notification"></div>
+                <form id="changePasswordForm">
+                    <div id="pwd_notification"></div>
                     <div class="form-group">
                         <label for="old-password">Old Password</label>
                         <input type="password" id="old_password" name="old_password" class="form-control" required="required">

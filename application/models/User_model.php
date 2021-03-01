@@ -43,35 +43,17 @@ class User_model extends CI_Model
 
 	}
 
-	public function add_password($category = null, $title, $username = null, $password = null, $url = null, $note = null){
+	// Get the address of a user based on the ID passed to the function
+	public function get_user_address_by_id($user_id) {
 
-		$data = array('category_id' => $category, 'user_id' =>$this->session->user_id, 'title' => $title, 'username' => $username, 'password' => $password, 'url' => $url, 'notes' => $note);
-		return $this->db->insert('passwords', $data);
-
+		return $this->db->where('user_id', $user_id)->get('address')->result_array();
+	
 	}
 
-	public function get_passwords($user_id){
-
-		return $this->db->where('user_id', $this->session->user_id)->get('passwords')->result_array();
-
-	}
-
-	public function get_password($user_id, $password_id){
-
-		return $this->db->where(array('user_id' => $this->session->user_id, 'id' => $password_id))->get('passwords')->result_array();
-
-	}
-
-	public function get_password_categories(){
-
-		return $this->db->get('password_categories')->result_array();
-
-	}
-
-	public function delete_password($password_id){
-
-		return $this->db->where(array('user_id' => $this->session->user_id, 'id' => $password_id))->delete('passwords');
-
+	public function update_password($new_password, $user_id) {
+		$this->db->set('password', password_hash($new_password, PASSWORD_DEFAULT));
+		$this->db->where('id', $user_id);
+		$this->db->update('user'); 
 	}
 
 }
