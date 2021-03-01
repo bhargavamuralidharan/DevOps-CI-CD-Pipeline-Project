@@ -191,6 +191,10 @@ p b, p strong {
   max-width: 750px;
 }
 
+label {
+  font-weight: bold;
+}
+
 .slider-wrapper img {
   max-width: 100%;
 }
