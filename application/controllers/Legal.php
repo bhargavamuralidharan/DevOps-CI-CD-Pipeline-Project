@@ -26,4 +26,11 @@ class Legal extends MY_Controller
 
     }
 
+    public function terms() {
+
+        $data['title'] = "Terms and Conditions";
+        $this->load->template('legal/terms', $data);
+
+    }
+
 }
