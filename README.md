@@ -6,10 +6,10 @@ Running this app locally requires XAMPP (or MAMP for MacOS) and configuration of
 3. Add the following to the file:
   ```
   <VirtualHost www.devops-ci.loc:80>
-    DocumentRoot "C:\xampp\htdocs\devops-ci"
+    DocumentRoot "C:\xampp\htdocs\devops-ci\src"
     ServerName devops-ci.loc
     ServerAlias www.devops-ci.loc
-    <Directory "C:\xampp\htdocs\devops-ci">
+    <Directory "C:\xampp\htdocs\devops-ci\src">
     Order allow,deny
     Allow from all
     </Directory>
