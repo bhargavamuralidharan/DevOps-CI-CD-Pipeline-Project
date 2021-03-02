@@ -46,7 +46,7 @@
                             <li><b>Country</b>: <?= $user_address[0]["country"] ?></li>
                         </ul>
 
-                        <button class="btn btn-primary btn-sm btn-full">Update Address</button>
+                        <button class="btn btn-primary btn-sm btn-full" data-target="#updateAddressModal" data-toggle="modal">Update Address</button>
 
                     </div>
                 </div>
@@ -124,6 +124,56 @@
 </div>
 
 <div class="spacer-50"></div>
+
+<div class="modal fade" id="updateAddressModal" tabindex="-1" role="dialog" aria-labelledby="updateAddressModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Update Shipping Address</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="updateAddressForm">
+                    <div id="address_notification"></div>
+
+                    <div class="form-group">
+                        <label for="deliver_to">Full Name</label>
+                        <input type="text" id="deliver_to" name="deliver_to" class="form-control" required="required">
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address Line 1</label>
+                        <input type="text" id="address" name="address" class="form-control" required="required">
+                    </div>
+                    <div class="form-group">
+                        <span id="inter_origin" style="display: block;">
+                        <label for="country">Country</label>
+                        <select onchange="print_state('state', this.selectedIndex);" id="country" required  name ="country" class="fa-glass booking_form_dropdown form-control"></select> </span> 											
+                        <script language="javascript">print_country("country");</script>	
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">State</label>
+                        <select  name ="state" required  id ="state" class="fa-glass booking_form_dropdown form-control"><option value="">Select state</option></select>    
+                        <span class="field-validation-valid text-danger" ></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">City</label>
+                        <input type="text" id="city" name="city" class="form-control" required="required">
+                    </div>
+                    <div class="form-group">
+                        <label for="zip">Zip Code</label>
+                        <input type="text" id="zip_code" name="zip_code" class="form-control" required="required">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" form="updateAddressForm" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="changePasswordModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">

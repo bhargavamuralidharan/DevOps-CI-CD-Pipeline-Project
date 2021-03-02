@@ -56,4 +56,41 @@ class Dashboard extends MY_Controller
 		}
 	}
 
+	// Updates the user's password
+	public function update_address() {
+
+		$this->form_validation->set_rules('deliver_to', 'Deliver To', 'trim|required');
+		$this->form_validation->set_rules('address', 'Address Line 1', 'trim|required');
+		$this->form_validation->set_rules('city', 'City', 'trim|required');
+		$this->form_validation->set_rules('province', 'Province', 'trim|required');
+		$this->form_validation->set_rules('zip_code', 'zip_code', 'trim|required');
+		$this->form_validation->set_rules('country', 'Country', 'trim|required');
+		$this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
+
+		//run validation
+		if ($this->form_validation->run() == FALSE) {
+			//failed validations
+			echo json_encode(array("response" => "failed_validations", "message" => validation_errors() ));
+		} else {
+			// passed validations
+			$result = $this->user_model->get_account($this->session->username);
+			
+			if($result)
+			{
+				$this->user_model->update_address(
+					$this->session->user_id, 
+					$this->input->post('deliver_to'), 
+					$this->input->post('address'), 
+					$this->input->post('city'), 
+					$this->input->post('province'), 
+					$this->input->post('zip_code'),
+					$this->input->post('country'));
+				echo json_encode(array("response" => "success", "message" => '<div class="alert alert-success">Your address has been updated.</div>' ));
+
+			} else {
+				echo json_encode(array("response" => "error", "message" => '<div class="alert alert-danger">An error occured.</div>' ));
+			}
+		}
+	}
+
 }

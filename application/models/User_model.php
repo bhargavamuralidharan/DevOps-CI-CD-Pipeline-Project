@@ -53,7 +53,14 @@ class User_model extends CI_Model
 	public function update_password($new_password, $user_id) {
 		$this->db->set('password', password_hash($new_password, PASSWORD_DEFAULT));
 		$this->db->where('id', $user_id);
-		$this->db->update('user'); 
+		return $this->db->update('user'); 
+	}
+
+	public function update_address($user_id, $deliver_to, $address, $city, $province, $zip_code, $country) {
+		
+		$this->db->set(array('deliver_to' => $deliver_to, 'address' => $address, 'city' => $city, 'province' => $province, 'zip_code' => $zip_code, 'country' => $country));
+		$this->db->where('user_id', $user_id);
+		return $this->db->update('address'); 
 	}
 
 }
