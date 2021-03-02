@@ -40,7 +40,13 @@ class User_model extends CI_Model
 		$this->db->insert('address', $address);
 
 		return true;
+	}
 
+	// Get the data of all users
+	public function get_all_users() {
+
+		return $this->db->get('user')->result_array();
+	
 	}
 
 	// Get the address of a user based on the ID passed to the function
@@ -50,17 +56,45 @@ class User_model extends CI_Model
 	
 	}
 
+	// Update user password
 	public function update_password($new_password, $user_id) {
 		$this->db->set('password', password_hash($new_password, PASSWORD_DEFAULT));
 		$this->db->where('id', $user_id);
 		return $this->db->update('user'); 
 	}
 
+	// Update a user's address
 	public function update_address($user_id, $deliver_to, $address, $city, $province, $zip_code, $country) {
 		
 		$this->db->set(array('deliver_to' => $deliver_to, 'address' => $address, 'city' => $city, 'province' => $province, 'zip_code' => $zip_code, 'country' => $country));
 		$this->db->where('user_id', $user_id);
 		return $this->db->update('address'); 
+	}
+
+	// Add a package
+	public function add_package($deliver_to, $tracking_id, $delivery_title, $delivery_details, $weight) {
+
+		$data = array(
+			'user_id' => $deliver_to,
+			'tracking_id' => $tracking_id,
+			'title' => $delivery_title,
+			'details' => $delivery_details,
+			'weight' => $weight
+		);
+
+		// Insert data to delivery table
+		$this->db->insert('delivery', $data);
+
+		// Insert data to delivery_status table
+		$this->db->insert('delivery_status', array('tracking_id' => $tracking_id));
+
+	}
+
+	// Get packages for a particular user
+	public function get_packages_in_transit($user_id) {
+		
+		return $this->db->join('delivery_status', 'delivery_status.tracking_id = delivery.tracking_id')->where('delivery.user_id', $user_id)->get('delivery')->result_array();
+	
 	}
 
 }

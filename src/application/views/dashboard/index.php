@@ -2,25 +2,45 @@
 
 <div class="page-content">
 
-    <div class="container">
+    <div class="container-fluid">
 
         <div class="spacer-10"></div>
 
         <div class="row">
             <div class="col-md-8">
                 <div class="gutter">
-                    <b class="text-uppercase">Packages In Transit</b>
+                    <h5 class="text-uppercase mb-4">Packages In Transit</h5>
+
+                    <?php
+                        if(isset($packages) && sizeof($packages) > 0) { 
+                            foreach($packages as $pkg) {
+                    ?>
+                        <div class="box">
+                            <h6><?= $pkg['title'] ?> - <i class=""><?= $delivery_status_titles[$pkg['status'] - 1]['title'] ?></i></h6>
+                            <p class="text-muted"> <?= $pkg['details'] ?> </p>
+                            <div>
+                                <div class="float-right text-muted"><small><?= date('F j, Y | h:m a', strtotime($pkg['added'])) ?></small></div>
+                                <a class="btn btn-sm btn-success shadow" href="<?= base_url('dashboard/track/') . $pkg['tracking_id'] ?>">Track Package</a>
+                            </div>
+                        </div>
+
+                    <?php 
+                            }
+                        } else { 
+                    ?>
 
                     <div class="mt-5 mb-5 text-center text-muted">
                         <i class="fas fa-box"></i> <br>
                         You currently do not have any packages in transit.
                     </div>
+                    <?php } ?>
+
                 </div>
 
                 <div class="spacer-20"></div>
 
                 <div class="gutter">
-                    <b class="text-uppercase">Recent Packages</b>
+                    <h5 class="text-uppercase mb-4">Recent Packages</h5>
 
                     <div class="mt-5 mb-5 text-center text-muted">
                         <i class="fas fa-box"></i> <br>
@@ -34,7 +54,7 @@
             <div class="col-md-4">
                 <div class="gutter">
                     <div class="dashboard-sidebar-content">
-                        <b class="text-uppercase">My Shipping Address</b>
+                        <h5 class="text-uppercase">My Shipping Address</h5>
                         <div class="spacer-20"></div>
 
                         <ul class="basic no-padding mb-3">
@@ -55,7 +75,7 @@
 
                 <div class="gutter">
                     <div class="dashboard-sidebar-content">
-                        <b class="title text-uppercase">Settings</b>
+                        <h5 class="title text-uppercase mb-3">Settings</h5>
                         <div class="spacer-20"></div>
                         <ul class="basic no-padding">
                             <li>

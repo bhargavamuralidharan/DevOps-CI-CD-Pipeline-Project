@@ -11,6 +11,7 @@ class Dashboard extends MY_Controller
         require_auth();
 
 		$this->load->model('user_model');
+		$this->load->model('delivery_model');
 
 	}
 
@@ -18,6 +19,9 @@ class Dashboard extends MY_Controller
 	{
 		$data['title'] = "Dashboard";
 		$data['user_address'] = $this->user_model->get_user_address_by_id($this->session->user_id);
+		$data['packages'] = $this->user_model->get_packages_in_transit($this->session->user_id);
+		$data['delivery_status_titles'] = $this->delivery_model->get_delivery_status_titles();
+
 		$data['load_extra_js'] = array(base_url('resources/js/dashboard.js'));
 
         $this->load->template('dashboard/index', $data);

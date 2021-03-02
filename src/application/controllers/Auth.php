@@ -46,6 +46,7 @@ class Auth extends MY_Controller
 					$this->session->set_userdata('username', $result[0]['username']);
 					$this->session->set_userdata('email', $result[0]['email']);
 					$this->session->set_userdata('password', $result[0]['password']);
+					$this->session->set_userdata('access', $result[0]['access']);
 
 					if($result[0]['verified'] == false) {
 						$this->session->set_userdata('unverified', true);
