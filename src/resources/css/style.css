@@ -8,6 +8,10 @@ body {
   max-width: 1040px !important;
 }
 
+.container-fluid {
+  max-width: 1250px;
+}
+
 /*
     General
 */
