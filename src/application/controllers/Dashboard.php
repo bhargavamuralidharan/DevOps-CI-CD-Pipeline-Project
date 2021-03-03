@@ -97,4 +97,28 @@ class Dashboard extends MY_Controller
 		}
 	}
 
+	public function track($tracking_id = null) {
+
+		if($tracking_id != null) {
+
+			$package = $this->delivery_model->get_package_by_id($tracking_id);
+
+			if($package) {
+				$data['title'] = "Track your package";
+				$data['user_address'] = $this->user_model->get_user_address_by_id($this->session->user_id);
+				$data['package'] = $package;
+				$data['delivery_address'] = $this->user_model->get_user_address_by_id($package[0]['user_id']);
+				$data['delivery_status'] = $this->delivery_model->get_delivery_status_by_tracking_id($tracking_id);
+				$data['delivery_status_titles'] = $this->delivery_model->get_delivery_status_titles();
+
+				$this->load->template('dashboard/track', $data);
+			} else {
+				echo "invalid tracking ID";
+			}
+		} else {
+			echo "no trackin id";
+		}
+		
+	}
+
 }

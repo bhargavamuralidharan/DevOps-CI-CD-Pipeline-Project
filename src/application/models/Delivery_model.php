@@ -14,4 +14,19 @@ class Delivery_model extends CI_Model
         
     }
 
+	public function get_delivery_status_by_tracking_id($tracking_id) {
+
+        return $this->db->where('tracking_id', $tracking_id)->get('delivery_status')->result_array();
+        
+    }
+
+	public function get_package_by_id($tracking_id) {
+
+		return $this->db->join('delivery_status', 'delivery_status.tracking_id = delivery.tracking_id')
+				->where('delivery.tracking_id', $tracking_id)
+				->get('delivery')
+				->result_array();
+
+	}
+
 }
