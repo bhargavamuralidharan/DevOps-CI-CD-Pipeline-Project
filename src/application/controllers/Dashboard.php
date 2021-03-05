@@ -108,6 +108,7 @@ class Dashboard extends MY_Controller
 				$data['user_address'] = $this->user_model->get_user_address_by_id($this->session->user_id);
 				$data['package'] = $package;
 				$data['delivery_address'] = $this->user_model->get_user_address_by_id($package[0]['user_id']);
+				$data['current_status'] = $this->delivery_model->get_current_status($tracking_id);
 				$data['delivery_status'] = $this->delivery_model->get_delivery_status_by_tracking_id($tracking_id);
 				$data['delivery_status_titles'] = $this->delivery_model->get_delivery_status_titles();
 

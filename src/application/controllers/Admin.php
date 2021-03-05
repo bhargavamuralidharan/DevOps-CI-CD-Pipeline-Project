@@ -1,12 +1,15 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+use Twilio\Rest\Client;
+
 class Admin extends MY_Controller 
 {
 	public function __construct()
 	{
 		parent::__construct();
 		$this->load->model('user_model');
+		$this->load->model('delivery_model');
 
 		require_auth_admin();
 	}
@@ -51,6 +54,24 @@ class Admin extends MY_Controller
 
 				$this->session->set_userdata('package_added', 'Package has been added to the database.');
 
+				if(isset($send_to_sms)){
+					// Twilio API
+					$account_sid = 'AC4427e94dec1fa3d62e95c1ed7c3a30f9';
+					$auth_token = 'b53a1481fcedb2d606c15615f7bda7f4';
+					$twilio_number = "+14422410184";
+
+					$client = new Client($account_sid, $auth_token);
+					$client->messages->create(
+						// Where to send a text message (your cell phone?)
+						'+14372262440',
+						array(
+							'from' => $twilio_number,
+							'body' => 'I sent this message in under 10 minutes!'
+						)
+					);
+				}
+
+
 				$data['title'] = "Add Package";
 				$data['users'] = $this->user_model->get_all_users();
 				$this->load->template('admin/add_package.php', $data);
@@ -59,6 +80,43 @@ class Admin extends MY_Controller
 
 		}
 
+	}
+
+	public function manage_packages()
+	{
+		if($_SERVER['REQUEST_METHOD'] == "GET") {
+			
+			$data['title'] = "Manage Packages";
+			$data['packages'] = $this->delivery_model->get_all_packages();
+			$data['delivery_status_titles'] = $this->delivery_model->get_delivery_status_titles();
+
+			$this->load->template('admin/manage_packages.php', $data);
+		
+		}
+	}
+
+	public function package($tracking_id)
+	{
+		if($tracking_id != null) {
+
+			$package = $this->delivery_model->get_package_by_id($tracking_id);
+
+			if($package) {
+				$data['title'] = "Track your package";
+				$data['user_address'] = $this->user_model->get_user_address_by_id($this->session->user_id);
+				$data['package'] = $package;
+				$data['delivery_address'] = $this->user_model->get_user_address_by_id($package[0]['user_id']);
+				$data['current_status'] = $this->delivery_model->get_current_status($tracking_id);
+				$data['delivery_status'] = $this->delivery_model->get_delivery_status_by_tracking_id($tracking_id);
+				$data['delivery_status_titles'] = $this->delivery_model->get_delivery_status_titles();
+
+				$this->load->template('admin/package', $data);
+			} else {
+				echo "invalid tracking ID";
+			}
+		} else {
+			echo "no trackin id";
+		}
 	}
 
 }

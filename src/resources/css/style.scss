@@ -22,6 +22,11 @@ body{
     font-weight: bold;
 }
 
+.page-content {
+    min-height: 80vh;
+    position: relative;
+}
+
 .flex {
     display: flex;
 

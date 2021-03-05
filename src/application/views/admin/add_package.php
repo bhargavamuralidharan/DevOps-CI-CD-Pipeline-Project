@@ -54,6 +54,11 @@
                     </div>
 
                     <div class="form-group">
+                        <input type="checkbox" name="notify_user_email"> &nbsp;&nbsp;
+                        <label for="notify_user_email">Notify the user via SMS</label>
+                    </div>
+
+                    <div class="form-group">
                         <button type="submit" class="btn btn-default">Add Package</button>
                     </div>
                 </form>

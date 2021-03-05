@@ -8,6 +8,10 @@ class Delivery_model extends CI_Model
 		parent::__construct();
 	}
 
+	public function get_current_status($tracking_id) {
+		return $this->db->where('tracking_id', $tracking_id)->order_by('d_date', 'DESC')->limit(1)->get('delivery_status')->result_array();
+	}
+
     public function get_delivery_status_titles() {
 
         return $this->db->get('delivery_status_title')->result_array();
@@ -16,7 +20,7 @@ class Delivery_model extends CI_Model
 
 	public function get_delivery_status_by_tracking_id($tracking_id) {
 
-        return $this->db->where('tracking_id', $tracking_id)->get('delivery_status')->result_array();
+        return $this->db->where('tracking_id', $tracking_id)->order_by('d_date', 'DESC')->get('delivery_status')->result_array();
         
     }
 
@@ -24,6 +28,14 @@ class Delivery_model extends CI_Model
 
 		return $this->db->join('delivery_status', 'delivery_status.tracking_id = delivery.tracking_id')
 				->where('delivery.tracking_id', $tracking_id)
+				->get('delivery')
+				->result_array();
+
+	}
+
+	public function get_all_packages() {
+
+		return $this->db->join('user', 'user.id = delivery.user_id')
 				->get('delivery')
 				->result_array();
 

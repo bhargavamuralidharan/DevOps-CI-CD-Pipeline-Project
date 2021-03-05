@@ -16,7 +16,7 @@
                             foreach($packages as $pkg) {
                     ?>
                         <div class="box">
-                            <h6><?= $pkg['title'] ?> - <i class=""><?= $delivery_status_titles[$pkg['status'] - 1]['title'] ?></i></h6>
+                            <h6><?= $pkg['title'] ?> - <span class="badge badge-default"><?= $delivery_status_titles[$pkg['delivery_status'] - 1]['title'] ?></span></h6>
                             <p class="text-muted"> <?= $pkg['details'] ?> </p>
                             <div>
                                 <div class="float-right text-muted"><small><?= date('F j, Y | h:m a', strtotime($pkg['added'])) ?></small></div>

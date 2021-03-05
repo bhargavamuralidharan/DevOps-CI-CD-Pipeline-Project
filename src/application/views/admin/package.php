@@ -13,13 +13,21 @@
                     <div><?= $delivery_address[0]['province'] ?></div>
                     <div><?= $delivery_address[0]['country'] ?></div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="bold mb-3">Details</div>
                     <?= $package[0]['details'] ?>
                 </div>
-                <div class="col-md-4">
-                    <div class="bold">Weight</div>
+                <div class="col-md-3">
+                    <div class="bold mb-3">Weight</div>
                     <?= $package[0]['weight'] ?> lbs
+                </div>
+                <div class="col-md-3">
+                    <div class="bold mb-3">Actions</div>
+                    <?php
+                        if($delivery_status[0]['status'] == 1) {
+                            echo '<button class="btn btn-sm btn-success">Dispatch Package</button>';
+                        }
+                    ?>
                 </div>
             </div>
 
