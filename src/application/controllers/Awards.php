@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Default_controller extends MY_Controller 
+class Awards extends MY_Controller 
 {
 	public function __construct()
 	{
@@ -10,10 +10,10 @@ class Default_controller extends MY_Controller
 
 	public function index()
 	{
-		$data['title'] = "Home";
+		$data['title'] = "Awards";
 		//$data['load_extra_js'] = array(base_url("test.js"));
 
-		$this->load->template('home', $data);
+		$this->load->template('awards', $data);
 
 	}
 

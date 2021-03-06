@@ -9,6 +9,7 @@ class Auth extends MY_Controller
 		
 		// load user model
 		$this->load->model('user_model');
+
 	}
 
 	public function index()

@@ -18,6 +18,8 @@ class Admin extends MY_Controller
 	{
 
 		$data['title'] = "Admin";
+		$data['packages'] = $this->delivery_model->get_all_packages(10);
+		$data['delivery_status_titles'] = $this->delivery_model->get_delivery_status_titles();
 		$this->load->template('admin/index', $data);
 
 	}

@@ -33,12 +33,17 @@ class Delivery_model extends CI_Model
 
 	}
 
-	public function get_all_packages() {
+	public function get_all_packages($limit = null) {
 
-		return $this->db->join('user', 'user.id = delivery.user_id')
+		if($limit != null)
+			return $this->db->join('user', 'user.id = delivery.user_id')
+				->limit($limit, 0)
 				->get('delivery')
 				->result_array();
 
+		return $this->db->join('user', 'user.id = delivery.user_id')
+			->get('delivery')
+			->result_array();
 	}
 
 }
