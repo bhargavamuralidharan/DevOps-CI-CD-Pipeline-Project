@@ -20,7 +20,7 @@
                             <p class="text-muted"> <?= $pkg['details'] ?> </p>
                             <div>
                                 <div class="float-right text-muted"><small><?= date('F j, Y | h:m a', strtotime($pkg['added'])) ?></small></div>
-                                <a class="btn btn-sm btn-success shadow" href="<?= base_url('dashboard/track/') . $pkg['tracking_id'] ?>">Track Package</a>
+                                <a class="bold" href="<?= base_url('dashboard/track/') . $pkg['tracking_id'] ?>">Track Package</a>
                             </div>
                         </div>
 

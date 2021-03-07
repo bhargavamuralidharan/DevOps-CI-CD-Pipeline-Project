@@ -112,12 +112,42 @@ class Admin extends MY_Controller
 				$data['delivery_status'] = $this->delivery_model->get_delivery_status_by_tracking_id($tracking_id);
 				$data['delivery_status_titles'] = $this->delivery_model->get_delivery_status_titles();
 
+				$data['load_extra_js'] = array(base_url('resources/js/admin_package.js'));
+
 				$this->load->template('admin/package', $data);
 			} else {
-				echo "invalid tracking ID";
+				redirect('admin');
 			}
 		} else {
-			echo "no trackin id";
+			redirect('admin');
+		}
+	}
+
+	public function update_tracking($endpoint = null)
+	{
+
+		$tracking_id = $this->input->post('tracking_id');
+
+		if($endpoint != null) {
+
+			$package = $this->delivery_model->get_package_by_id($tracking_id);
+
+			if($package) {
+				if($endpoint == 'delivered') {
+					$this->delivery_model->set_delivered($tracking_id);
+					echo json_encode(array("response" => "success"));
+				} else if($endpoint == 'in_transit') {
+					$this->delivery_model->set_in_transit($tracking_id);
+					echo json_encode(array("response" => "success"));
+				} else if($endpoint == 'dispatch') {
+					$this->delivery_model->set_dispatched($tracking_id);
+					echo json_encode(array("response" => "success"));
+				}
+			} else {
+				echo json_encode(array("response" => "error", "message" => "An error occured. Please try again later." ));
+			}
+		} else {
+			echo json_encode(array("response" => "error", "message" => "An error occured. Please try again later." ));
 		}
 	}
 

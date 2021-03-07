@@ -46,4 +46,45 @@ class Delivery_model extends CI_Model
 			->result_array();
 	}
 
+	public function set_delivered($tracking_id) {
+
+        $this->db->set(array('delivery_status' => 4));
+		$this->db->where('tracking_id', $tracking_id);
+		$this->db->update('delivery'); 
+
+		$user = array(
+			'tracking_id' => $tracking_id,
+			'status' => 4);
+		$this->db->insert('delivery_status', $user);
+
+        
+    }
+
+	public function set_dispatched($tracking_id) {
+
+        $this->db->set(array('delivery_status' => 2));
+		$this->db->where('tracking_id', $tracking_id);
+		$this->db->update('delivery'); 
+
+		$user = array(
+			'tracking_id' => $tracking_id,
+			'status' => 2);
+		$this->db->insert('delivery_status', $user);
+
+    }
+
+	public function set_in_transit($tracking_id) {
+
+        $this->db->set(array('delivery_status' => 3));
+		$this->db->where('tracking_id', $tracking_id);
+		$this->db->update('delivery'); 
+
+		$user = array(
+			'tracking_id' => $tracking_id,
+			'status' => 3);
+		$this->db->insert('delivery_status', $user);
+
+        
+    }
+
 }

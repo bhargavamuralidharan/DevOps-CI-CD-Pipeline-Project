@@ -14,12 +14,16 @@
                     <div><?= $delivery_address[0]['country'] ?></div>
                 </div>
                 <div class="col-md-4">
-                    <div class="bold mb-3">Details</div>
+                    <div class="bold mb-3">Package Details</div>
                     <?= $package[0]['details'] ?>
                 </div>
                 <div class="col-md-4">
                     <div class="bold">Weight</div>
                     <?= $package[0]['weight'] ?> lbs
+
+                    <div class="mt-3">
+                        <b>Tracking ID:</b> <?= $package[0]['tracking_id'] ?>
+                    </div>
                 </div>
             </div>
 

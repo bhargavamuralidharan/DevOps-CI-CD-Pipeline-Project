@@ -20,12 +20,20 @@
                 <div class="col-md-3">
                     <div class="bold mb-3">Weight</div>
                     <?= $package[0]['weight'] ?> lbs
+
+                    <div class="mt-3">
+                        <b>Tracking ID:</b> <span id="tracking_id"><?= $package[0]['tracking_id'] ?></span>
+                    </div>
                 </div>
                 <div class="col-md-3">
                     <div class="bold mb-3">Actions</div>
                     <?php
                         if($delivery_status[0]['status'] == 1) {
-                            echo '<button class="btn btn-sm btn-success">Dispatch Package</button>';
+                            echo '<button class="btn btn-success" id="dispatch">Dispatch Package</button>';
+                        } else if($delivery_status[0]['status'] == 2) {
+                            echo '<button class="btn btn-success" id="in_transit">In Transit</button>';
+                        } else if($delivery_status[0]['status'] == 3) {
+                            echo '<button class="btn btn-success" id="delivered">Delivered</button>';
                         }
                     ?>
                 </div>
