@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 01, 2021 at 05:15 AM
+-- Generation Time: Mar 11, 2021 at 02:57 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.3.26
 
@@ -61,7 +61,13 @@ CREATE TABLE `delivery` (
   `id` int(11) NOT NULL,
   `address_id` int(11) DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
-  `delivery_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `tracking_id` varchar(10) NOT NULL,
+  `delivery_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `delivery_status` int(1) NOT NULL DEFAULT 1,
+  `title` varchar(100) NOT NULL,
+  `details` varchar(500) NOT NULL,
+  `weight` double NOT NULL,
+  `added` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -72,9 +78,20 @@ CREATE TABLE `delivery` (
 
 CREATE TABLE `delivery_status` (
   `id` int(11) NOT NULL,
-  `delivery_id` int(11) DEFAULT NULL,
-  `status` int(11) DEFAULT NULL,
+  `tracking_id` varchar(10) DEFAULT NULL,
+  `status` int(1) DEFAULT 1,
   `d_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `delivery_status_title`
+--
+
+CREATE TABLE `delivery_status_title` (
+  `id` int(1) NOT NULL,
+  `title` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -130,7 +147,8 @@ CREATE TABLE `user` (
   `email_notifications` int(11) DEFAULT NULL,
   `deals_notifications` int(11) DEFAULT NULL,
   `sms_notifications` int(11) DEFAULT NULL,
-  `registered` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `registered` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `access` int(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
