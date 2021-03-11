@@ -1,6 +1,9 @@
 <div class="page-content">
 
     <div class="container-fluid">
+
+        <div class="text-muted mb-3"><a href="<?= base_url('admin/manage_packages') ?>"><small><i class="fas fa-arrow-left"></i> back to dashboard</small></a></div>
+
         <h3 class="mb-4"><?= $package[0]['title'] ?> &nbsp;<div class="badge badge-default"><?= $delivery_status_titles[$current_status[0]['status'] - 1]['title'] ?> </div></h3>
 
         <div class="gutter">
@@ -34,6 +37,8 @@
                             echo '<button class="btn btn-success" id="in_transit">In Transit</button>';
                         } else if($delivery_status[0]['status'] == 3) {
                             echo '<button class="btn btn-success" id="delivered">Delivered</button>';
+                        } else if($delivery_status[0]['status'] == 4) {
+                            echo '<button class="btn btn-success" disabled>Delivered</button>';
                         }
                     ?>
                 </div>

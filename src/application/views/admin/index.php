@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <a href="<?= base_url('admin/add_package') ?>" class="btn btn-sm btn-primary float-right">Add Package</a>             
-                <a href="<?= base_url('admin/manage_packages') ?>" class="btn btn-sm btn-primary mb-3 float-right">Manage Packages</a>
+                <a href="<?= base_url('admin/manage_packages') ?>" class="btn btn-sm btn-primary mb-3 float-right">All Packages</a>
                 <h5>Recent Packages</h5> 
                 <table class="table table-striped mt32 customers-list">
                     <thead>
