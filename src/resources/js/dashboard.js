@@ -90,6 +90,7 @@ window.onload = function() {
 					} else if(res.response == "success") {
 						updateAddressForm.reset();
 						address_notification.innerHTML = res.message;
+						setTimeout(function(){ location.reload(); }, 2500);
 					} else if(res.response == "failed_validations") {
 						address_notification.innerHTML = res.message;
 					} else if(res.response == "old_password_error") {
