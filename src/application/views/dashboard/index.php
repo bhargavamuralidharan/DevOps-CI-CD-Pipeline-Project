@@ -40,12 +40,30 @@
                 <div class="spacer-20"></div>
 
                 <div class="gutter">
-                    <h5 class="text-uppercase mb-4">Recent Packages</h5>
+                    <h5 class="text-uppercase mb-4">Recent Packages <span class="text-muted">(Delivered)</span></h5>
+                    
+                    <?php
+                        if(count($delivered) > 0) {
+                            foreach($delivered as $del) {
+                    ?>
+                        <div class="box">
+                            <h6><?= $del['title'] ?> - <span class="badge badge-default"><?= $delivery_status_titles[$del['delivery_status'] - 1]['title'] ?></span></h6>
+                            <p class="text-muted"> <?= $del['details'] ?> </p>
+                            <div>
+                                <div class="float-right text-muted"><small><?= date('F j, Y | h:m a', strtotime($del['added'])) ?></small></div>
+                                <a class="bold" href="<?= base_url('dashboard/track/') . $del['tracking_id'] ?>">Details</a>
+                            </div>
+                        </div>
 
-                    <div class="mt-5 mb-5 text-center text-muted">
-                        <i class="fas fa-box"></i> <br>
-                        You currently do not have any recent packages.
-                    </div>
+                    <?php 
+                            }
+                        } else { 
+                    ?>
+                        <div class="mt-5 mb-5 text-center text-muted">
+                            <i class="fas fa-box"></i> <br>
+                            You currently do not have any recent packages.
+                        </div>
+                    <?php } ?>
                 </div>
 
                 <div class="spacer-20"></div>

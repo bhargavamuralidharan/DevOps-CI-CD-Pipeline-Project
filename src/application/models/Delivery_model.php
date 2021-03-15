@@ -83,8 +83,24 @@ class Delivery_model extends CI_Model
 			'tracking_id' => $tracking_id,
 			'status' => 3);
 		$this->db->insert('delivery_status', $user);
-
-        
+   
     }
 
+	// Get packages in transit for a particular user
+	public function get_packages_in_transit($user_id) {
+	
+		//return $this->db->join('delivery_status', 'delivery_status.tracking_id = delivery.tracking_id')->where('delivery.user_id', $user_id)->get('delivery')->result_array();
+		return $this->db->where(array('user_id' => $user_id, 'delivery_status !=' => 4))->get('delivery')->result_array();
+	
+	}
+
+	// Get delivered packages for a particular user
+	public function get_delivered_packages($user_id, $limit = null) {
+
+		if($limit != null)
+			return $this->db->where(array('user_id' => $user_id, 'delivery_status' => 4))->limit($limit)->get('delivery')->result_array();
+		
+		return $this->db->where(array('user_id' => $user_id, 'delivery_status' => 4))->get('delivery')->result_array();
+	
+	}
 }

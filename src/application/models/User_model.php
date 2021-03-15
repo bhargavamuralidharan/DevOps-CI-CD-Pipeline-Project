@@ -90,12 +90,4 @@ class User_model extends CI_Model
 
 	}
 
-	// Get packages for a particular user
-	public function get_packages_in_transit($user_id) {
-		
-		//return $this->db->join('delivery_status', 'delivery_status.tracking_id = delivery.tracking_id')->where('delivery.user_id', $user_id)->get('delivery')->result_array();
-		return $this->db->where('user_id', $user_id)->get('delivery')->result_array();
-	
-	}
-
 }
