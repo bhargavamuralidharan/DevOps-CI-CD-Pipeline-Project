@@ -55,7 +55,7 @@ class Delivery_model extends CI_Model
 		$user = array(
 			'tracking_id' => $tracking_id,
 			'status' => 4);
-		$this->db->insert('delivery_status', $user);
+		return $this->db->insert('delivery_status', $user);
 
         
     }
@@ -69,7 +69,7 @@ class Delivery_model extends CI_Model
 		$user = array(
 			'tracking_id' => $tracking_id,
 			'status' => 2);
-		$this->db->insert('delivery_status', $user);
+		return $this->db->insert('delivery_status', $user);
 
     }
 
@@ -82,7 +82,7 @@ class Delivery_model extends CI_Model
 		$user = array(
 			'tracking_id' => $tracking_id,
 			'status' => 3);
-		$this->db->insert('delivery_status', $user);
+		return $this->db->insert('delivery_status', $user);
    
     }
 
