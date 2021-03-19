@@ -12,7 +12,7 @@
                     </div>
                 <?php } ?>
 
-                <form action="<?= base_url('admin/add_package') ?>" method="POST">
+                <form action="<?= site_url('admin/add_package') ?>" method="POST">
                     <div class="form-group">
                         <label for="deliver_to">Deliver To</label>
                         <select name="deliver_to" id="deliver_to" class="form-control" required>

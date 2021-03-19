@@ -1,7 +1,9 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+
 <div class="page-content">
 
     <div class="container-fluid">
-        <div class="text-muted mb-3"><a href="<?= base_url('dashboard') ?>"><small><i class="fas fa-arrow-left"></i> back to dashboard</small></a></div>
+        <div class="text-muted mb-3"><a href="<?= site_url('dashboard') ?>"><small><i class="fas fa-arrow-left"></i> back to dashboard</small></a></div>
 
         <h3 class="mb-4"><?= $package[0]['title'] ?> &nbsp;<div class="badge badge-default"><?= $delivery_status_titles[$current_status[0]['status'] - 1]['title'] ?> </div></h3>
 
