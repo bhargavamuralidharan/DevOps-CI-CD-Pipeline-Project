@@ -39,7 +39,7 @@
                         <td><?= date('F j, Y - h:m a', strtotime($pkg['added'])) ?></td>
                         <td><?= $delivery_status_titles[$pkg['delivery_status'] - 1]['title'] ?></td>
                         <td>
-                            <a class="btn btn-default btn-sm" href="<?= base_url('admin/package/' . $pkg['tracking_id']) ?>">View</a> 
+                            <a class="btn btn-default btn-sm" href="<?= site_url('admin/package/' . $pkg['tracking_id']) ?>">View</a> 
                         </td>
                     </tr>
                 <?php } ?>

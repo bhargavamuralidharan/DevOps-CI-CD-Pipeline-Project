@@ -35,9 +35,9 @@
 						<div class="form-group">
 							<button type="submit" class="btn btn-primary" name="submit">Login</button>
 							<div class="auth-meta">
-								<a class="auth-metas" href="<?= base_url('auth/register') ?>">New Account</a>
+								<a class="auth-metas" href="<?= site_url('auth/register') ?>">New Account</a>
 								 | 
-								<a class="auth-metas" href="<?= base_url('auth/account_recovery') ?>">Forgot Password?</a>
+								<a class="auth-metas" href="<?= site_url('auth/account_recovery') ?>">Forgot Password?</a>
 							</div>
 							
 						</div>

@@ -20,7 +20,7 @@
                             <p class="text-muted"> <?= $pkg['details'] ?> </p>
                             <div>
                                 <div class="float-right text-muted"><small><?= date('F j, Y | h:m a', strtotime($pkg['added'])) ?></small></div>
-                                <a class="bold" href="<?= base_url('dashboard/track/') . $pkg['tracking_id'] ?>">Track Package</a>
+                                <a class="bold" href="<?= site_url('dashboard/track/') . $pkg['tracking_id'] ?>">Track Package</a>
                             </div>
                         </div>
 
@@ -51,7 +51,7 @@
                             <p class="text-muted"> <?= $del['details'] ?> </p>
                             <div>
                                 <div class="float-right text-muted"><small><?= date('F j, Y | h:m a', strtotime($del['added'])) ?></small></div>
-                                <a class="bold" href="<?= base_url('dashboard/track/') . $del['tracking_id'] ?>">Details</a>
+                                <a class="bold" href="<?= site_url('dashboard/track/') . $del['tracking_id'] ?>">Details</a>
                             </div>
                         </div>
 
