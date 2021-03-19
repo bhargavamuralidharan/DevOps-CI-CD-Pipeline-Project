@@ -24,6 +24,10 @@ class Admin extends MY_Controller
 
 	}
 
+	public function test() {
+		phpinfo();
+	}
+
     public function add_package()
 	{
 		if($_SERVER['REQUEST_METHOD'] == "GET") {
