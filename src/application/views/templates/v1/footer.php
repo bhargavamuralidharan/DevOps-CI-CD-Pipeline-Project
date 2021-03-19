@@ -11,26 +11,25 @@
                 <div class="footer-block col-md-3 col-sm-3 sm">
                     <h6>Who Are We?</h6>
                     <ul class="hidden-xs basic no-padding">
-                        <li><a href="about-us.php" tabindex="-1">About us</a></li>
-                        <li><a href="contact-us.php" tabindex="-1">Contact us</a></li>
-                        <li><a href="awards.php" tabindex="-1">Awards</a></li>
+                        <li><a href="<?= base_url('about') ?>" tabindex="-1">About us</a></li>
+                        <li><a href="<?= base_url('contact') ?>" tabindex="-1">Contact us</a></li>
+                        <li><a href="<?= base_url('awards') ?>" tabindex="-1">Awards</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-block col-md-3 col-sm-3">
                     <h6>Tools</h6>
                     <ul class="hidden-xs basic no-padding">
-                        <!--<li><a href="">Ebay Tools</a></li>-->
-                        <li><a href="login.php" tabindex="-1">My Account</a></li>
-                        <li><a href="tracking.php" tabindex="-1">Track A Parcel</a></li>
-                        <li><a rel="nofollow" href="index.php" tabindex="-1">Get A Quote</a></li>
+                        <li><a href="<?= base_url('dashboard') ?>" tabindex="-1">My Account</a></li>
+                        <li><a href="<?= base_url('dashboard') ?>" tabindex="-1">Track A Parcel</a></li>
+                        <li><a href="<?= base_url('quotes') ?>" tabindex="-1">Get A Quote</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-block col-md-3 col-sm-3">
                     <h6>Features</h6>
                     <ul class="hidden-xs basic no-padding">
-                        <li><a href="signup.php" tabindex="-1">Business Account</a></li>        
+                        <li><a href="<?= base_url('auth/register') ?>" tabindex="-1">Business Account</a></li>        
                     </ul>
                 </div>
 
