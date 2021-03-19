@@ -9,6 +9,14 @@
 		
 </div>
 <main class="slide">
+
+<div class="spacer-50"></div>
+    <div class="container">
+        <div class="text-center"><h1>Welcome</h1>
+        We are one of pioneer in US and Canada headquaters in Toronto for courier benefits, and incorporated express bundle appropriation organization with high unwavering quality and agreeable proportion.
+        </div>
+    </div>
+<div class="spacer-50"></div>
    
 <div class="fw grey-bg">
 
