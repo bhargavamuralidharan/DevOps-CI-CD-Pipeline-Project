@@ -23,8 +23,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://35.225.105.194:8001/';
 
+$config['base_url'] = 'http://35.222.37.197:8001/';
 /*
 |--------------------------------------------------------------------------
 | Index File

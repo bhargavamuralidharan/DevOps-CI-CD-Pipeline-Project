@@ -1,4 +1,4 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed'); phpinfo(); ?>
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <!--SLIDER -->	
 <div class="slider-wrapper theme-default">
