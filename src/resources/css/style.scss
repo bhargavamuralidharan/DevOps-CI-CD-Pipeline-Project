@@ -49,6 +49,21 @@ body{
     align-items: center;
 }
 
+
+/*
+    Admin
+*/
+.admin-bar {
+    background-color: black;
+    font-size: 0.9em;
+    font-weight: bold;
+    padding: 5px 0px;
+
+    a {
+        color: white;
+    }
+}
+
 /*
     General
 */

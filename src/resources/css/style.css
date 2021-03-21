@@ -74,6 +74,20 @@ body {
 }
 
 /*
+    Admin
+*/
+.admin-bar {
+  background-color: black;
+  font-size: 0.9em;
+  font-weight: bold;
+  padding: 5px 0px;
+}
+
+.admin-bar a {
+  color: white;
+}
+
+/*
     General
 */
 .hidden {
