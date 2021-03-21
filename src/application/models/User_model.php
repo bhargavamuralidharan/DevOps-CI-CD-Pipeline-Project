@@ -49,6 +49,20 @@ class User_model extends CI_Model
 	
 	}
 
+	// Get the data of all staff
+	public function get_all_staff() {
+
+		return $this->db->where('access >', 0)->get('user')->result_array();
+	
+	}
+
+	// Get the data of all staff
+	public function get_all_users_reg() {
+
+		return $this->db->where('access', 0)->get('user')->result_array();
+	
+	}
+
 	// Get the address of a user based on the ID passed to the function
 	public function get_user_address_by_id($user_id) {
 
