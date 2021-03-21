@@ -5,6 +5,42 @@
     <div class="container-fluid">
         <h5 class="mb-5">Admin Dashboard</h5>
 
+        <div class="admin-stats">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <a href="<?= site_url('admin/users') ?>">
+                        <div class="box text-center">
+                            <h1><?= $user_count ?></h1>
+                            <b>Users</b>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="col-md-3 col-sm-6">
+                    <a href="<?= site_url('admin/users') ?>">
+                        <div class="box text-center">
+                            <h1><?= $staff_count ?></h1>
+                            <b>Staff</b>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="box text-center">
+                        <h1><?= $packages_in_transit ?></h1>
+                        <b>Packages In Transit</b>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="box text-center">
+                        <h1>10</h1>
+                        <b>Delivered Packages</b>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="spacer-30"></div>
+
         <div class="row">
             <div class="col-sm-12">
                 <a href="<?= site_url('admin/add_package') ?>" class="btn btn-sm btn-primary float-right">Add Package</a>             

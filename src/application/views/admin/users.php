@@ -2,9 +2,36 @@
 
 <div class="page-content">
 
-    <div class="container-fluid">
-        <h3 class="mb-5">Manage Packages</h3>
-    
+    <div class="container">
+        <h1>Staff</h1>
+
+        <table class="table table-striped mt32 staff-list">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Registered</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($staff as $s) { ?>
+                    <tr>
+                        <td><?= $s['username'] ?></td>
+                        <td><?= $s['first_name'] ?> <?= $s['last_name'] ?></td>
+                        <td><?= $s['email'] ?></td>
+                        <td><?= $s['phone'] ?></td>
+                        <td><?= $s['registered'] ?></td>
+                        <td><a href="#" class="btn btn-block btn-default btn-sm"><i class="fas fa-wrench"></i></a></td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+
+        <h1 class="mt-5 mb-5">Regular Users</h1>
+
         <div class="row">
             <div class="col-md-8">
                 <div class="flex align-items-center mb-4">
@@ -12,46 +39,41 @@
                         <b>Search</b>
                     </div>
                     <div class="flex-9">
-                        <input type="search" placeholder="Search..." class="form-control search-input" data-table="customers-list"/>
+                        <input type="search" placeholder="Search..." class="form-control search-input" data-table="users-list"/>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <table class="table table-striped mt32 customers-list">
+
+        <table class="table table-striped mt32 users-list">
             <thead>
                 <tr>
-                    <th>Deliver to</th>
+                    <th>Username</th>
+                    <th>Full Name</th>
                     <th>Email</th>
                     <th>Phone</th>
-                    <th>Tracking ID</th>
-                    <th>Added</th>
-                    <th>Status</th>
-                    <th>Action</th>
+                    <th>Registered</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($packages as $pkg) { ?>
+                <?php foreach($users as $u) { ?>
                     <tr>
-                        <td><?= $pkg['first_name'] ?> <?= $pkg['last_name'] ?></td>
-                        <td><?= $pkg['email'] ?></td>
-                        <td><?= $pkg['phone'] ?></td>
-                        <td><?= $pkg['tracking_id'] ?></td>
-                        <td><?= date('F j, Y - h:m a', strtotime($pkg['added'])) ?></td>
-                        <td><?= $delivery_status_titles[$pkg['delivery_status'] - 1]['title'] ?></td>
-                        <td>
-                            <a class="btn btn-default btn-sm" href="<?= site_url('admin/package/' . $pkg['tracking_id']) ?>">View</a> 
-                        </td>
+                        <td><?= $u['username'] ?></td>
+                        <td><?= $u['first_name'] ?> <?= $u['last_name'] ?></td>
+                        <td><?= $u['email'] ?></td>
+                        <td><?= $u['phone'] ?></td>
+                        <td><?= $u['registered'] ?></td>
+                        <td><a href="#" class="btn btn-block btn-default btn-sm"><i class="fas fa-wrench"></i></a></td>
                     </tr>
                 <?php } ?>
             </tbody>
         </table>
 
-        <div class="spacer-50"></div>
-
     </div>
-
 </div>
+
+<div class="spacer-50"></div>
 
 <script>
     (function(document) {

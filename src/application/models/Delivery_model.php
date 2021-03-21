@@ -46,6 +46,21 @@ class Delivery_model extends CI_Model
 			->result_array();
 	}
 
+	// All packages for all users that are in transit
+	public function get_all_packages_in_transit($limit = null) {
+
+		if($limit != null)
+			return $this->db->join('user', 'user.id = delivery.user_id')
+				->limit($limit, 0)
+				->get('delivery')
+				->result_array();
+
+		return $this->db->join('user', 'user.id = delivery.user_id')
+			->where('delivery_status <', 4)
+			->get('delivery')
+			->result_array();
+	}
+
 	public function set_delivered($tracking_id) {
 
         $this->db->set(array('delivery_status' => 4));
