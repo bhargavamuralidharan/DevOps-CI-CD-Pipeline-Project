@@ -8,10 +8,12 @@ class Admin extends MY_Controller
 	public function __construct()
 	{
 		parent::__construct();
+		require_auth_admin();
+		
 		$this->load->model('user_model');
 		$this->load->model('delivery_model');
 
-		require_auth_admin();
+		$this->load->view('admin/admin_bar');
 	}
 
 	public function index()
@@ -20,6 +22,10 @@ class Admin extends MY_Controller
 		$data['title'] = "Admin";
 		$data['packages'] = $this->delivery_model->get_all_packages(10);
 		$data['delivery_status_titles'] = $this->delivery_model->get_delivery_status_titles();
+
+		$data['user_count'] = count($this->user_model->get_all_users_reg());
+		$data['staff_count'] = count($this->user_model->get_all_staff());
+		$data['packages_in_transit'] = count($this->delivery_model->get_all_packages_in_transit());
 		$this->load->template('admin/index', $data);
 
 	}
@@ -153,6 +159,14 @@ class Admin extends MY_Controller
 		} else {
 			echo json_encode(array("response" => "error", "message" => "An error occured. Please try again later." ));
 		}
+	}
+
+	public function users() {
+		$data['title'] = "Manage Users";
+
+		$data['staff'] = $this->user_model->get_all_staff();
+		$data['users'] = $this->user_model->get_all_users_reg();
+		$this->load->template('admin/users', $data);
 	}
 
 }
