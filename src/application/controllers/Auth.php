@@ -53,6 +53,10 @@ class Auth extends MY_Controller
 						$this->session->set_userdata('email_verified', false);
 					}
 
+					if($result[0]['access'] > 0) {
+						redirect('admin/dashboard');
+					}
+					
 					redirect('dashboard');
 				} else {
 					//login credentials invalid
@@ -122,7 +126,7 @@ class Auth extends MY_Controller
 			$this->email->to($this->input->post('email'));
 			$this->email->subject('Verify Your Account');
 			$this->email->message(default_email_template(
-				'Thank you for signing up for Kebanas. Please click the button below to verify your account.<br><br>
+				'Thank you for signing up for our platform. Please click the button below to verify your account.<br><br>
 				
 				<table width="100%" border="0" cellspacing="0" cellpadding="0">
 					<tr>

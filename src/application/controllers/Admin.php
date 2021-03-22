@@ -30,8 +30,8 @@ class Admin extends MY_Controller
 
 	}
 
-	public function test() {
-		phpinfo();
+	public function server_info() {
+		$this->load->view('admin/server_info.php');
 	}
 
     public function add_package()
