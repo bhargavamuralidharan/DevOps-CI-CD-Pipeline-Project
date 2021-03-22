@@ -13,7 +13,6 @@ class Admin extends MY_Controller
 		$this->load->model('user_model');
 		$this->load->model('delivery_model');
 
-		$this->load->view('admin/admin_bar');
 	}
 
 	public function index()
@@ -26,6 +25,8 @@ class Admin extends MY_Controller
 		$data['user_count'] = count($this->user_model->get_all_users_reg());
 		$data['staff_count'] = count($this->user_model->get_all_staff());
 		$data['packages_in_transit'] = count($this->delivery_model->get_all_packages_in_transit());
+		
+		$this->load->view('admin/admin_bar');
 		$this->load->template('admin/index', $data);
 
 	}
@@ -40,6 +41,8 @@ class Admin extends MY_Controller
 			
 			$data['title'] = "Add Package";
 			$data['users'] = $this->user_model->get_all_users();
+			
+			$this->load->view('admin/admin_bar');
 			$this->load->template('admin/add_package.php', $data);
 		
 		} else if($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -58,7 +61,7 @@ class Admin extends MY_Controller
 
 				$this->user_model->add_package(
 					$this->input->post('deliver_to'), 
-					$this->input->post('tracking_id'), 
+					strtoupper($this->input->post('tracking_id')), 
 					$this->input->post('delivery_title'), 
 					$this->input->post('delivery_details'),
 					$this->input->post('weight')
@@ -102,6 +105,7 @@ class Admin extends MY_Controller
 			$data['packages'] = $this->delivery_model->get_all_packages();
 			$data['delivery_status_titles'] = $this->delivery_model->get_delivery_status_titles();
 
+			$this->load->view('admin/admin_bar');
 			$this->load->template('admin/manage_packages.php', $data);
 		
 		}
@@ -124,6 +128,7 @@ class Admin extends MY_Controller
 
 				$data['load_extra_js'] = array(base_url('resources/js/admin_package.js'));
 
+				$this->load->view('admin/admin_bar');
 				$this->load->template('admin/package', $data);
 			} else {
 				redirect('admin');
@@ -166,6 +171,8 @@ class Admin extends MY_Controller
 
 		$data['staff'] = $this->user_model->get_all_staff();
 		$data['users'] = $this->user_model->get_all_users_reg();
+		
+		$this->load->view('admin/admin_bar');
 		$this->load->template('admin/users', $data);
 	}
 

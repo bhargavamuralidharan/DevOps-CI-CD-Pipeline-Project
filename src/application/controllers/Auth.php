@@ -54,7 +54,7 @@ class Auth extends MY_Controller
 					}
 
 					if($result[0]['access'] > 0) {
-						redirect('admin/dashboard');
+						redirect('admin');
 					}
 					
 					redirect('dashboard');
