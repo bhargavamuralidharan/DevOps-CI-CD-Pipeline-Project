@@ -12,6 +12,9 @@
             <li class="mr-2">
                 <a href="<?= site_url('admin/manage_packages') ?>">Packages</a>
             </li>
+            <li class="mr-2">
+                <a href="<?= site_url('admin/server_info') ?>">Server Info</a>
+            </li>
         </ul>
     </div>
 </div>
