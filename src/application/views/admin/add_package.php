@@ -18,7 +18,7 @@
                         <select name="deliver_to" id="deliver_to" class="form-control" required>
                             <option value=""></option>
                             <?php foreach($users as $user) { ?>
-                                <option value="<?= $user["id"] ?>"><?= $user["username"] ?></option>
+                                <option value="<?= $user["id"] ?>"><?= $user["first_name"] . ' ' . $user["last_name"] . ' &nbsp;&nbsp;(' . $user["username"] . ')' ?></option>
                             <?php } ?>
                         </select>
                     </div>
@@ -27,7 +27,7 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="tracking_id">Tracking ID</label>
-                                <input type="text" name="tracking_id" class="form-control" required readonly value="<?= random_str(10) ?>">
+                                <input type="text" name="tracking_id" class="form-control" required readonly value="<?= strtoupper(random_str(10)) ?>">
                             </div>
                         </div>
                         <div class="col-sm-6">
