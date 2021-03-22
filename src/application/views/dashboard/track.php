@@ -26,7 +26,7 @@
                     <?= $package[0]['weight'] ?> lbs
 
                     <div class="mt-3">
-                        <b>Tracking ID:</b> <?= $package[0]['tracking_id'] ?>
+                        <b>Tracking ID:</b> <?= strtoupper($package[0]['tracking_id']) ?>
                     </div>
                 </div>
             </div>
@@ -44,7 +44,7 @@
                         <?php if($count == 1 && $current_status[0]['status'] != 4){ $count++; ?>
                             <h3><i class="fas fa-circle-notch"></i></h3>
                         <?php } else { $count++; ?>
-                            <h3><i class="fas fa-circle text-success"></i></h3>
+                            <h3><i class="fas fa-check text-success"></i></h3>
                         <?php } ?>
                     </div>
                     <div class="box full-width">
