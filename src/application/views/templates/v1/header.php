@@ -42,7 +42,7 @@
 	<script src="<?=base_url('resources/js/countries.js')?>"></script>
 
 	<!-- Page Title -->
-	<title><?php if(isset($title)) echo $title . " | "; ?> DevOps-CI</title>
+	<title><?php if(isset($title)) echo $title . " | "; ?> International Courier Service</title>
 
 	<?php 
         if(isset($load_extra_css))
@@ -77,7 +77,7 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item">
-						<a class="nav-link" href="<?= site_url() ?>">Track My Courier <span class="sr-only">(current)</span></a>
+						<a class="nav-link" href="<?= site_url('tracking') ?>">Track My Courier <span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -104,6 +104,9 @@
 							<?= $_SESSION['username'] ?>
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<?php if($_SESSION['access'] > 0) ?>
+ 								<a class="dropdown-item bold" href="<?= site_url('admin') ?>">Admin Panel</a>
+
 							<a class="dropdown-item" href="<?= site_url('dashboard') ?>">My Account</a>
 							<a class="dropdown-item" href="<?=site_url('contact')?>">Get Support</a>
 							<div class="dropdown-divider"></div>
