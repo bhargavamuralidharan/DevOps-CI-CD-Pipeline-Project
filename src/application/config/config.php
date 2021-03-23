@@ -23,8 +23,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://devops-ci.loc/';
 
+$config['base_url'] = 'http://35.226.36.48:8001/';
 /*
 |--------------------------------------------------------------------------
 | Index File

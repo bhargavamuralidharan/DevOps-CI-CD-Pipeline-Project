@@ -1,0 +1,49 @@
+version: '3.3'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: app
+    depends_on:
+      - db
+    links:
+      - db
+    volumes:
+      - ./src:/var/www/html/
+    ports:
+      - 8001:80
+    networks:
+      - default
+
+  db:
+    container_name: devops-db
+    image: mariadb:10.4.18
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: devops-ci
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+    volumes:
+      - ./dump:/docker-entrypoint-initdb.d/
+      - ./sessions_data:/var/lib/mysql
+    ports:
+      - 6033:3306
+    networks:
+      - default
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8082:80
+    depends_on:
+      - db
+    networks:
+      - default
+    environment:
+      - PMA_ARBITRARY=1
+  
+volumes:
+  sessions_data:
