@@ -64,6 +64,18 @@ class Tracking extends MY_Controller
 
                 echo json_encode(array("response" => "success", "out" => $out ));
 
+            } else {
+                echo json_encode(array("response" => "package_not_found", "message" => '
+                    <div class="text-center">
+                        <div class="alert alert-dismissable fade show alert-warning mw-500 margin-0-auto">
+                            We\'re sorry, we couldn\'t find the package that you searched for.
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <small><a href="'.site_url('contact').'" target="_blank">Send us a message</a> if you require assistance.</small>
+                    </div>'
+                ));
             }
 
         }

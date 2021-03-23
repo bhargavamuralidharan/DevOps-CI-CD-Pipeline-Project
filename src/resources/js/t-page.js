@@ -15,7 +15,7 @@ window.onload = function() {
         const formData = new FormData();
         formData.append('tracking_id', tid.value);
 
-        if(tid.value != null) {
+        if(tid.value != '') {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function(response) {
                 if (this.readyState == 4 && this.status == 200) {
@@ -23,6 +23,8 @@ window.onload = function() {
                     if(res.response == "success") {
                         //trackingForm.reset();
                         tres.innerHTML = res.out;
+                    } else if (res.response == "package_not_found") {
+                        tres.innerHTML = res.message;
                     } else {
                         tres.innerHTML = '<div class="alert alert-danger">An error occured while trying to get your package\'s status. Please try again later.</div>';
                     }
@@ -30,6 +32,16 @@ window.onload = function() {
             };
             xhttp.open("POST", "/tracking/track", true);
             xhttp.send(formData);
+        } else {
+
+            tres.innerHTML = `
+                <div class="alert alert-dismissable text-center fade show alert-warning mw-500 margin-0-auto">
+                    Please enter a tracking ID.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>`;
+
         }
     });
 
