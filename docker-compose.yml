@@ -26,8 +26,8 @@ services:
       MYSQL_USER: admin
       MYSQL_PASSWORD: admin
     volumes:
-      - ./dump:/docker-entrypoint-initdb.d/
-      - ./sessions_data:/var/lib/mysql
+      #- ./dump:/docker-entrypoint-initdb.d/
+      - db-volume:/var/lib/mysql
     ports:
       - 6033:3306
     networks:
@@ -46,4 +46,5 @@ services:
       - PMA_ARBITRARY=1
   
 volumes:
-  sessions_data:
+  db-volume:
+    driver: local
