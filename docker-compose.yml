@@ -1,13 +1,9 @@
 version: '3.3'
 services:
   web:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: 34.66.136.31:8085/myphp
     container_name: app
     depends_on:
-      - db
-    links:
       - db
     volumes:
       - ./src:/var/www/html/
@@ -27,7 +23,7 @@ services:
       MYSQL_PASSWORD: admin
     volumes:
       - ./dump:/docker-entrypoint-initdb.d/
-      - ./sessions_data:/var/lib/mysql
+      - db-volume:/var/lib/mysql
     ports:
       - 6033:3306
     networks:
@@ -46,4 +42,5 @@ services:
       - PMA_ARBITRARY=1
   
 volumes:
-  sessions_data:
+  db-volume:
+    driver: local
