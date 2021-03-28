@@ -22,7 +22,6 @@ services:
       MYSQL_USER: admin
       MYSQL_PASSWORD: admin
     volumes:
-      - ./dump:/docker-entrypoint-initdb.d/
       - db-volume:/var/lib/mysql
     ports:
       - 6033:3306
